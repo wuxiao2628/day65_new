@@ -20,5 +20,8 @@ from app01 import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='app01_home'),
-    url(r'^book_list', views.book_list, name='app01_book_list')
+    url(r'^book_list/', views.book_list, name='app01_book_list'),
+    url(r'^author_list/', views.author_list, name='app01_author_list'),
+    url(r'^publish_list/', views.publish_list, name='app01_publish_list'),
+
 ]

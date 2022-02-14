@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'day65',
         'USER': 'root',
         'PASSWORD': 'mrc1212',
-        'HOST': '192.168.31.104',
+        'HOST': '127.0.0.1',
         'PORT': 3306,
         'CHARSET': 'utf8',
     }
