@@ -1,0 +1,61 @@
+{% extends "home.html" %}
+{% block content %}
+    <div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">图书列表</div>
+          <div class="panel-body">
+          </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-offset-1">
+                    <!-- Table -->
+                    <table class="table table-striped table-hover ">
+                <thead class="text-center">
+                    <tr>
+                        <th> 序号 </th>
+                        <th> 书名 </th>
+                        <th> 价格 </th>
+                        <th> 出版日期 </th>
+                        <th>  出版社  </th>
+                        <th> 作者 </th>
+                        <th> 操作 </th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% for book in book_obj %}
+                        <tr>
+                            <td>{{ book.pk }}</td>
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.price }}</td>
+                            <td>{{ book.publish_date | date:'Y-m-d' }}</td>
+                            <td>{{ book.publish.name }}</td>
+                            <td>{% for author_obj in book.authors.all %}
+
+                                {% if forloop.last %}
+                                    {{ author_obj.name }}
+                                {% else %}
+                                    {{ author_obj.name }},
+                                {% endif %}
+
+                            {% endfor %}
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-info btn-xs">编辑</a>
+                                <a href="" class="btn btn-danger btn-xs">删除</a>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+          </table>
+                </div>
+            </div>
+
+        </div>
+    <p>
+        <a href="" class="btn btn-success ">添加作品</a>
+    </p>
+
+
+{% endblock %}
